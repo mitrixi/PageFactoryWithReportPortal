@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
+		</Console>
+
+		<File name="FileAppender" fileName="logs/app.log">
+			<PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
+		</File>
+
+		<ReportPortalLog4j2Appender name="ReportPortalAppender">
+			<PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n%throwable"/>
+		</ReportPortalLog4j2Appender>
+	</Appenders>
+
+	<Loggers>
+		<Root level="WARN">
+			<AppenderRef ref="ConsoleAppender" level="DEBUG"/>
+			<AppenderRef ref="ReportPortalAppender" level="DEBUG"/>
+		</Root>
+
+		<Logger name="FileLogger" level="DEBUG" additivity="false">
+			<AppenderRef ref="FileAppender"/>
+		</Logger>
+	</Loggers>
+
+</Configuration>
